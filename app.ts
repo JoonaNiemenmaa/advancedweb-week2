@@ -66,13 +66,14 @@ console.log(plane);
 console.log(boat);
 
 class VehicleService<T> {
-	private items: Array<T> = [];
+	private items: T[] = [];
 
 	add(vehicle: T) {
 		this.items.push(vehicle);
 	}
-	list() {
+	list(): T[] {
 		console.log(this.items);
+		return this.items;
 	}
 }
 
