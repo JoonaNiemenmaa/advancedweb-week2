@@ -68,7 +68,7 @@ console.log(boat);
 class VehicleService<T> {
 	private items: T[] = [];
 
-	add(vehicle: T) {
+	add(vehicle: T): void {
 		this.items.push(vehicle);
 	}
 	list(): T[] {
