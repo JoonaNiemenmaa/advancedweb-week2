@@ -15,3 +15,74 @@ let vehicle = {
 };
 
 console.log(vehicle);
+
+interface IVehicle {
+	model: string;
+	color: string;
+	year: number;
+	power: number;
+}
+
+interface ICar extends IVehicle {
+	bodyType: string;
+	wheelCount: number;
+}
+
+interface IBoat extends IVehicle {
+	draft: number;
+}
+
+interface IPlane extends IVehicle {
+	wingspan: number;
+}
+
+let car: ICar = {
+	model: "Ford focus",
+	color: "Green",
+	year: 2016,
+	power: 150,
+	bodyType: "Hatchback",
+	wheelCount: 4,
+};
+
+let boat: IBoat = {
+	model: "Bella",
+	color: "Black",
+	year: 2022,
+	power: 100,
+	draft: 0.42,
+};
+
+let plane: IPlane = {
+	model: "Boeing 777",
+	color: "White",
+	year: 2020,
+	power: 170000,
+	wingspan: 65,
+};
+
+console.log(car);
+console.log(boat);
+console.log(plane);
+
+class VehicleService<Vehicle> {
+	private items: Array<Vehicle> = [];
+
+	add(vehicle: Vehicle) {
+		this.items.push(vehicle);
+	}
+	list() {
+		for (const vehicle of this.items) {
+			console.log(vehicle);
+		}
+	}
+}
+
+let cars = new VehicleService<ICar>();
+let boats = new VehicleService<IBoat>();
+
+cars.add(car);
+boats.add(boat);
+
+cars.list();
+boats.list();
