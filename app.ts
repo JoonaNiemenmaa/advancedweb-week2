@@ -62,19 +62,17 @@ let plane: IPlane = {
 };
 
 console.log(car);
-console.log(boat);
 console.log(plane);
+console.log(boat);
 
-class VehicleService<Vehicle> {
-	private items: Array<Vehicle> = [];
+class VehicleService<T> {
+	private items: Array<T> = [];
 
-	add(vehicle: Vehicle) {
+	add(vehicle: T) {
 		this.items.push(vehicle);
 	}
 	list() {
-		for (const vehicle of this.items) {
-			console.log(vehicle);
-		}
+		console.log(this.items);
 	}
 }
 
